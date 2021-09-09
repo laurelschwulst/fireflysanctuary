@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Laurel Schwulst</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <style>
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    a {
+      color: black;
+    }
+
+    .table-container {
+      width: 800px;
+      height: 500px;
+      position: relative;
+    }
+
+    .table {
+      height: 100%;
+      width: 100%;
+      background: #c09a83;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .firefly {
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      background-color: black;
+      box-shadow: 0 0 18px 20px black;
+      animation-name: glow;
+      animation-duration: 6s;
+      animation-delay: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease;
+    }
+
+    .firefly.off {
+      animation-name: none;
+    }
+
+    .firefly.one {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .firefly.two {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .firefly.three {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .firefly.four {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    /* animation keyframes for firefly glow */
+    @keyframes glow {
+      0% {
+        background-color: black;
+        box-shadow: 0 0 18px 20px black;
+      }
+      25% {
+        background-color: yellow;
+        box-shadow: 0 0 24px 32px yellow;
+      }
+      35% {
+        background-color: yellow;
+        box-shadow: 0 0 24px 32px yellow;
+      }
+      60% {
+        background-color: black;
+        box-shadow: 0 0 18px 20px black;
+      }
+      100% {
+        background-color: black;
+        box-shadow: 0 0 18px 20px black;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="table-container">
+    <div class="table">
+      <i>welcome to the firefly sanctuary.<br><br>
+        the time is <span id="date"></span>.<br><br>
+        we're open until 7pm today.<br><br>
+        3 spots are currently occupied, and 1 spot is open.<br><br>
+        <a href="#">take the open spot?</a>
+      </i>
+    </div>
+    <div class="firefly one"></div>
+    <div class="firefly two"></div>
+    <div class="firefly three off"></div>
+    <div class="firefly four"></div>
+  </div>
+
+  <script>
+    const d = new Date().toLocaleString("en-US", {
+      timeZone: "America/New_York",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      timeZoneName: "short",
+    });
+
+    console.log(d);
+
+    var date_element = document.getElementById("date");
+    date_element.innerHTML = d;
+
+  </script>
+
+</body>
+
+</html>
